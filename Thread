@@ -1,0 +1,46 @@
+package com.Thread;
+
+public class nom {
+	
+	static Thread t1;
+	static Thread t2;
+	static Thread t3;
+	static Thread t4;
+	
+	public nom(){
+		t1=new Thread(new Runnable(){
+			@Override
+			public void run(){
+				System.out.println("Thread 1");
+			}
+		});
+		t2=new Thread(new Runnable(){
+			@Override
+			public void run(){
+				System.out.println("Thread 2");
+			}
+		});
+		t3=new Thread(new Runnable(){
+			@Override
+			public void run(){
+				System.out.println("Thread 3");
+			}
+		});
+		t4=new Thread(new Runnable(){
+			@Override
+			public void run(){
+				System.out.println("Thread 4");	
+			}
+		});
+	}
+	
+	public static void main(String[] args) {
+		
+		nom s1=new nom();
+		t1.start();
+		t2.start();		//starts(); prints values randomly a/c to CPU preference
+		t3.start();		//by using run(); it will print serially
+		t4.start();
+	}
+
+}
