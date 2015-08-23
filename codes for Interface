@@ -1,0 +1,66 @@
+package com.sport;
+
+/**
+ * @author Arindam
+ *
+ */
+public interface sport {
+	public String homeTeam(String INDIA);
+	public String awayTeam(String ENGLAND);
+}
+public interface info {
+	public String aboutteam1(String INDIA);		
+	
+	public String aboutteam2(String ENGLAND);
+	
+}
+package com.sport;
+
+class cricket implements sport,info {
+	
+
+	
+
+	public static void main(String[] args) {
+		
+		cricket c=new cricket();
+		String h=c.homeTeam("INDIA");
+		String a=c.awayTeam("ENGLAND");
+		
+		String b=c.aboutteam1("INDIA");
+		String d=c.aboutteam2("ENGLAND");
+		
+		System.out.println("Home team is:" + h);
+		System.out.println("Away team is:" + a);
+		
+		System.out.println(b + " "+ "is good");
+		System.out.println(d + " "+ "is bad");
+	}
+
+	@Override
+	public String homeTeam(String INDIA) {
+		// TODO Auto-generated method stub
+		return INDIA;
+	}
+
+	@Override
+	public String awayTeam(String ENGLAND) {
+		// TODO Auto-generated method stub
+		return ENGLAND;
+	}
+
+	@Override
+	public String aboutteam1(String INDIA) {
+		return INDIA;
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String aboutteam2(String ENGLAND) {
+		return ENGLAND;
+		// TODO Auto-generated method stub
+		
+	}
+
+}
