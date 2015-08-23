@@ -1,0 +1,61 @@
+package com.timeApplet;
+
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class timeApplet extends Applet implements Runnable {
+	int h;
+	int m;
+	int s;
+	Thread t=null;
+	
+	public void init(){
+		setBackground(Color.black);
+		setForeground(Color.white);
+	}
+	public void start(){
+		h=00;
+		m=00;
+		s=00;
+		t=new Thread(this);
+		t.start();
+	}
+	public void stop(){
+		
+	}
+	public void destroy(){
+		
+	}
+	public void paint(Graphics g){
+		g.drawString(h+":"+m+":"+s,10,20);
+		
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	@Override
+	public void run() {
+		while(true)
+			try{
+				while(true) {
+					for(m=0;m<60;m++) {
+					    for(s=0;s<60;s++) {
+							repaint();
+							t.sleep(1000);
+					    }
+					}
+					h=h+1;
+				}
+			}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}
