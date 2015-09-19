@@ -1,0 +1,53 @@
+package com.LS;
+import java.io.*; 
+import java.lang.*; 
+import java.util.ArrayList; 
+
+@SuppressWarnings("unused")
+class LogicSq { 
+	
+	public void input(int arrayNum[]) throws IOException{ 
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in)); 	
+		int lengArray=arrayNum.length; //compute length of d array 
+		System.out.println("The length of array is::"+lengArray); 
+		for(int i=0;i<lengArray;i++) 
+		{ 
+			System.out.println("Enter the elements::"); 
+			arrayNum[i]=Integer.parseInt(br.readLine()); 
+		} 
+	} 
+
+	public void Difference(int arrayNum[],int N,int K) throws IOException{ 
+		int count=0; 
+		for(int i=0;i<N;i++) 
+		{ 
+			for(int j=i+1;j<N;j++) 
+				if((arrayNum[i]-arrayNum[j]==K)||(arrayNum[j]-arrayNum[i]==K)) //compares difference
+				{ 
+					count++; 
+				} 
+		} 
+		System.out.println("The number of pairs found is::"+count); 
+		} 
+
+	public static void main(String args[] ) throws Exception {  
+		LogicSq LQ=new LogicSq(); 
+	
+		//INPUTS
+		int N,K; 
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in)); 
+		System.out.println("Enter Size of Array::"); 
+		N=Integer.parseInt(br.readLine()); 
+		int arrayNum[]=new int[N]; 
+		System.out.println("Enter the difference,k::"); 
+		K=Integer.parseInt(br.readLine()); 
+
+		LQ.input(arrayNum); //calling the input method by arrayNum
+		System.out.println("Size is::"+N); 
+		for(int i=0;i<N;i++) 
+		{ 
+			System.out.println(arrayNum[i]); //calling the Difference method by arrayNum
+		} 
+		LQ.Difference(arrayNum,N,K); 
+	}	 
+}
