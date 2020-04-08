@@ -1,0 +1,36 @@
+package com.test.ship;
+
+import java.util.Scanner;
+
+public class Ship {
+
+    int count = 0;
+
+    public int calculateDay(int arr[], int n) {
+        for(int i = 0; i < n-1; i++) {
+                if(arr[i] < arr[i+1]) {
+                    count ++;
+                }
+        }
+        return count;
+    }
+
+    public static void main(String args[] ) throws Exception {
+        Ship ship = new Ship();
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("enter number of elements");
+
+        int n = s.nextInt();
+
+        int arr[] = new int[n];
+
+        System.out.println("enter elements");
+
+        for (int i = 0; i < n; i++) {//for reading array
+            arr[i] = s.nextInt();
+        }
+
+        System.out.println("No of days after no ship can be destroyed are::" + ship.calculateDay(arr, arr.length));
+    }
+}
